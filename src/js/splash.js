@@ -1,3 +1,4 @@
+// Control animation of splash and change between pages
 const init = () => {
   const preload = document.getElementById('preload');
   let loading = 0;
