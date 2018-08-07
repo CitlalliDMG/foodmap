@@ -1,4 +1,5 @@
 var map, infoWindow;
+
 const printMap = (pos) => {
     // Create the places service.
     var service = new google.maps.places.PlacesService(map);
@@ -13,9 +14,9 @@ const printMap = (pos) => {
         });
 }
 
-function createMarkers(places) {
-    var bounds = new google.maps.LatLngBounds();
-    var placesList = document.getElementById('places');
+const createMarkers = (places) => {
+    let bounds = new google.maps.LatLngBounds();
+    let placesList = document.getElementById('places');
 
     for (var i = 0, place; place = places[i]; i++) {
         var image = {
@@ -39,16 +40,24 @@ function createMarkers(places) {
         let placeRating = document.createElement('p');
 
         placeCard.setAttribute('class','placeCard');
+
         placeCard.dataset.placeKey = place.id;
+        placeCard.dataset.address = place.vicinity;
+        placeCard.dataset.types = place.types;
+        placeCard.dataset.rating = place.rating;
+        // console.log(place);
+
 
         placeName.innerHTML = place.name
-        placeRating.innerHTML =`&#9733; ${place.rating}`;
+        // placeRating.innerHTML =`&#9733; ${place.rating}`;
         textCard.appendChild(placeName);
-        textCard.appendChild(placeRating);
+        // textCard.appendChild(placeRating);
         placeCard.appendChild(textCard);
         placesList.appendChild(placeCard);
-
+       
         bounds.extend(place.geometry.location);
+        // console.log(placeCard.dataset);
+        getDivForModal(placeCard,marker);
     }
     map.fitBounds(bounds);
 }
@@ -74,6 +83,7 @@ const error = () => {
     });
 };
 
+
 initMap = () => {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 19.4045352, lng: -99.1662097 },
@@ -93,3 +103,25 @@ initMap = () => {
         });
     }
 }
+
+const showModal = (modalData, marker) => {
+    modalAddress = modalData.address;
+    console.log(modalData.types);
+    swal({
+        title: modalData.name,
+        text: `${modalData.address} | ★ ${modalData.rating}`,
+        imageUrl: 'https://source.unsplash.com/400x200/?restaurant,food',
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+        showCloseButton: true,
+        showConfirmButton: false
+    });
+};
+
+const getDivForModal = (placeCard, marker) => {
+    let modalData = placeCard.dataset;
+    placeCard.addEventListener('click', () => {
+        showModal(modalData, marker);
+    });
+};

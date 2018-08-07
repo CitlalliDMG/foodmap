@@ -15,7 +15,7 @@
 
 <body>
     <!--Beginning the nav bar-->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="nav-bar">
+    <nav class="navbar sticky-top" role="navigation" id="nav-bar">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#top">
@@ -26,12 +26,13 @@
     </nav>
     <!--End of nav bar-->
 
-    <header class="container">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Bienvenid@ a FoodMap</h5>
-                <p class="card-text">El mejor buscador de lugares para comer de acuerdo a tu ubicación</p>
-                <p class="card-text">Nota: FoodMap te muestra los restaurantes a 500 metros a la redonda </p>
+    <header class="container" id="header-info">
+        <div class="card" id="first-card">
+            <h1 class="card-title">Bienvenid@ a FoodMap</h1>
+            <div class="card-body" id="container-info-1">
+                <p class="card-text" id="first-info">El mejor buscador de lugares para comer de acuerdo a tu ubicación</p>
+                <p class="card-text">
+                    <span class="bold">Nota:</span> FoodMap te muestra todos los restaurantes a 500 metros a la redonda </p>
             </div>
         </div>
     </header>
@@ -39,9 +40,19 @@
     <section id="map">
     </section>
 
-    <div class="form-group">
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    </div>
+    <form>
+        <div class="form-group">
+            <label for="select-rating">Filtra los restaurantes por rating:</label>
+            <select class="form-control" id="select-rating">
+                <option>Todos los ratings</option>
+                <option>0 - 1 &#9733;</option>
+                <option>1 - 2 &#9733;</option>
+                <option>2 - 3 &#9733;</option>
+                <option>3 - 4 &#9733;</option>
+                <option>4 - 5 &#9733;</option>
+            </select>
+        </div>
+    </form>
 
     <section id="result-panel">
         <h2 id="finded-restaurants">Restaurantes encontrados:</h2>
