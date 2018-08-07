@@ -179,6 +179,16 @@ nav{
     margin: 0 auto;
 }
 
+#filter-button{
+    margin: 15px auto;
+    background: #ffb542;
+    border: none;
+}
+
+#filter-button:hover {
+    background: #59c5c7;
+}
+
 #result-panel {
     width: 80%;
     margin: 0 auto;
