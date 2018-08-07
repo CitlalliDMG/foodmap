@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <!--Beginning the nav bar-->
+    <!-- Beginning the nav bar -->
     <nav class="navbar sticky-top" role="navigation" id="nav-bar">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -24,8 +24,9 @@
             </div>
         </div>
     </nav>
-    <!--End of nav bar-->
+    <!-- End of nav bar -->
 
+    <!-- Beginning of header -->
     <header class="container" id="header-info">
         <div class="card" id="first-card">
             <h1 class="card-title">Bienvenid@ a FoodMap</h1>
@@ -36,10 +37,14 @@
             </div>
         </div>
     </header>
+    <!-- End of header -->
 
+    <!-- Beggining of map container -->
     <section id="map">
     </section>
+    <!-- End of map container -->
 
+    <!-- Beggining of filter form section -->
     <form>
         <div class="form-group">
             <label for="select-rating">Filtra los restaurantes por rating:</label>
@@ -54,11 +59,14 @@
             <button type="button" class="btn btn-primary" id="filter-button">Filtrar</button>
         </div>
     </form>
+    <!-- End of filter form section -->
 
+    <!-- Beggining of results section -->
     <section id="result-panel">
         <h2 id="finded-restaurants">Restaurantes encontrados:</h2>
         <div id="places"></div>
     </section>
+    <!-- End of results section -->
 
     <!-- SCRIPTS SECTION -->
     <!-- Script for google maps services -->
@@ -73,6 +81,7 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+    <!-- Our script -->
     <script src="../js/main.js"></script>
 </body>
 

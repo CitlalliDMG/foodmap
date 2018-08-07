@@ -1,5 +1,6 @@
 var map, infoWindow;
 
+// Print map with info
 const printMap = (pos) => {
     // Create the places service.
     var service = new google.maps.places.PlacesService(map);
@@ -14,6 +15,7 @@ const printMap = (pos) => {
         });
 }
 
+// Create markers and elements of DOM
 const createMarkers = (places) => {
     let bounds = new google.maps.LatLngBounds();
     let placesList = document.getElementById('places');
@@ -49,19 +51,17 @@ const createMarkers = (places) => {
 
 
         placeName.innerHTML = place.name
-        // placeRating.innerHTML =`&#9733; ${place.rating}`;
         textCard.appendChild(placeName);
-        // textCard.appendChild(placeRating);
         placeCard.appendChild(textCard);
         placesList.appendChild(placeCard);
        
         bounds.extend(place.geometry.location);
-        // console.log(placeCard.dataset);
         getDivForModal(placeCard,marker);
     }
     map.fitBounds(bounds);
 }
 
+// Get position of user
 const getPosition = (position) => {
     var pos = {
         lat: position.coords.latitude,
@@ -75,6 +75,7 @@ const getPosition = (position) => {
     printMap(pos);
 };
 
+// Function to handle error
 const error = () => {
     swal({
         type: 'error',
@@ -83,7 +84,7 @@ const error = () => {
     });
 };
 
-
+// Initialize map
 initMap = () => {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 19.4045352, lng: -99.1662097 },
@@ -104,6 +105,7 @@ initMap = () => {
     }
 }
 
+// Show alert with info of restaurant
 const showModal = (modalData, marker) => {
     modalAddress = modalData.address;
     console.log(modalData.types);
@@ -119,6 +121,7 @@ const showModal = (modalData, marker) => {
     });
 };
 
+// Add listener to each restaurant
 const getDivForModal = (placeCard, marker) => {
     let modalData = placeCard.dataset;
     placeCard.addEventListener('click', () => {
