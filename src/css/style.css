@@ -151,60 +151,33 @@ nav{
     color: #59c5c7;
 }
 
-#right-panel {
-    font-family: 'Roboto','sans-serif';
-    line-height: 30px;
-    padding-left: 10px;
+#result-panel {
+    width: 80%;
+    margin: 0 auto;
 }
 
-#right-panel select, #right-panel input {
-    font-size: 15px;
+#places {
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-flow: row wrap; /* Safari 6.1+ */
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
 }
 
-#right-panel select {
-    width: 100%;
+.placeCard {
+    background:  #ffb542;
+    margin-bottom: 15px;
+    width: 150px;
+    height: 150px;
+    margin-left: 15px; 
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2%;
 }
 
-#right-panel i {
-    font-size: 12px;
-}
-
-#right-panel {
-    font-family: Arial, Helvetica, sans-serif;
-    position: absolute;
-    right: 5px;
-    top: 60%;
-    margin-top: -195px;
-    height: 330px;
-    width: 200px;
-    padding: 5px;
-    z-index: 5;
-    border: 1px solid #999;
-    background: #fff;
-}
-
-h2 {
-    font-size: 22px;
-    margin: 0 0 5px 0;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    height: 271px;
-    width: 200px;
-    overflow-y: scroll;
-}
-
-li {
-    background-color: #f1f1f1;
-    padding: 10px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-li:nth-child(odd) {
-    background-color: #fcfcfc;
+.placeCard:nth-child(odd) {
+    background-color: #59c5c7;
 }

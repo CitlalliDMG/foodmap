@@ -1,6 +1,5 @@
 var map, infoWindow;
 const printMap = (pos) => {
-    console.log(pos);
     // Create the places service.
     var service = new google.maps.places.PlacesService(map);
 
@@ -34,9 +33,20 @@ function createMarkers(places) {
             position: place.geometry.location
         });
 
-        var li = document.createElement('li');
-        li.textContent = place.name;
-        placesList.appendChild(li);
+        let placeCard = document.createElement('div');
+        let textCard = document.createElement('div');
+        let placeName = document.createElement('p');
+        let placeRating = document.createElement('p');
+
+        placeCard.setAttribute('class','placeCard');
+        placeCard.dataset.placeKey = place.id;
+
+        placeName.innerHTML = place.name
+        placeRating.innerHTML =`&#9733; ${place.rating}`;
+        textCard.appendChild(placeName);
+        textCard.appendChild(placeRating);
+        placeCard.appendChild(textCard);
+        placesList.appendChild(placeCard);
 
         bounds.extend(place.geometry.location);
     }
